@@ -1,0 +1,93 @@
+%as128r1 
+!
+interface dummy0
+!
+interface eth0
+!
+interface eth1
+ ip ospf cost 20
+!
+interface eth2
+ ip ospf cost 10
+!
+interface lo
+!
+router ospf 
+ ospf router-id 1.128.0.1
+ network 1.128.0.1/32 area 0.0.0.0
+ network 1.128.5.0/24 area 0.0.0.0
+ network 1.128.6.0/24 area 0.0.0.0
+ default-information originate always
+!
+line vty
+!
+
+%as128r2
+interface dummy0
+!
+interface eth0
+!
+interface eth1
+ ip ospf cost 20
+!
+interface eth2
+ ip ospf cost 10
+!
+interface lo
+!
+router ospf
+ ospf router-id 1.128.0.2
+ network 1.128.0.2/32 area 0.0.0.0
+ network 1.128.4.0/24 area 0.0.0.0
+ network 1.128.6.0/24 area 0.0.0.0
+!
+line vty
+!
+
+%as128r3
+!
+interface dummy0
+!
+interface eth0
+!
+interface eth1
+ ip ospf cost 10
+!
+interface eth2
+ ip ospf cost 10
+!
+interface lo
+!
+router ospf
+ ospf router-id 1.128.0.3
+ network 1.128.0.3/32 area 0.0.0.0
+ network 1.128.1.0/24 area 0.0.0.0
+ network 1.128.3.0/24 area 0.0.0.0
+ network 1.128.5.0/24 area 0.0.0.0
+!
+line vty
+!
+
+%as128r4
+
+interface dummy0
+!
+interface eth0
+!
+interface eth1
+ ip ospf cost 10
+!
+interface eth2
+ ip ospf cost 10
+!
+interface lo
+!
+router ospf
+ ospf router-id 1.128.0.4
+ network 1.128.0.4/32 area 0.0.0.0
+ network 1.128.2.0/24 area 0.0.0.0
+ network 1.128.3.0/24 area 0.0.0.0
+ network 1.128.4.0/24 area 0.0.0.0
+!
+line vty
+!
